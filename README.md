@@ -19,7 +19,7 @@ $$
 \hat{\epsilon}^2 = \frac{1}{p} \sum_{i=1}^{p} (q_i^2 - (u_q)_i)
 $$
 
-This formulation allows the model to adaptively prune dimensions that are indistinguishable from noise.
+The selection is performed in a query-dependent manner, allowing us to adapt the dimensionality for each query rather than relying on a single fixed value for the entire collection.
 
 ## Cite 
 
