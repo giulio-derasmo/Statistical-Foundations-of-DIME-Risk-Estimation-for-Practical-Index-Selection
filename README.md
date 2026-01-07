@@ -21,6 +21,13 @@ $$
 
 The selection is performed in a query-dependent manner, allowing us to adapt the dimensionality for each query rather than relying on a single fixed value for the entire collection.
 
+## Code
+
+```
+python main.py -c {COLLECTION_NAME} -r {MODEL_NAME} -f {DIME_FILTER_NAME}
+```
+
+
 ## Cite 
 
 ```{text}
