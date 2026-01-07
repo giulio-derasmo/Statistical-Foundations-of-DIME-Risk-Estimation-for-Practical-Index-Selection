@@ -9,51 +9,27 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # =====================
-# Path Setup
-# =====================
-import sys
-if not os.getcwd().endswith("Eclipse"):
-    os.chdir('../../Eclipse')
-    sys.path.append("..")
-
-# =====================
 # Standard Libraries
 # =====================
-import itertools
-from multiprocessing import Pool
-from functools import partial
-from copy import deepcopy
-from glob import glob
-from collections import Counter
 import argparse
-import pickle
-from typing import Tuple
-from ast import literal_eval
 
 # =====================
 # Scientific Libraries
 # =====================
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import torch
 from tqdm import tqdm
-from scipy.special import softmax
-from sklearn.gaussian_process.kernels import RBF
 # =====================
 # External Libraries
 # =====================
 import faiss
-import ir_measures
 from sentence_transformers import SentenceTransformer
 
 # =====================
 # Local Modules
 # =====================
-import Eclipse.dimension_filters as dimension_filters
-#from dimension_filters.AbstractFilter import AbstractFilter
-from Eclipse.memmap_interface import MemmapCorpusEncoding, MemmapQueriesEncoding
-
+import dimension_filters
+from memmap_interface import MemmapCorpusEncoding, MemmapQueriesEncoding
 from utils import compute_variance_true, modified_masked_retrieve_and_evaluate
 
 # =====================
@@ -156,8 +132,8 @@ def main(args):
         
         print(f'Finished test {args.collection} {args.model_name} {args.filter_function} {measure_name}: ', output.value.mean())
 
-        save_filename = f"/hdd4/giuder/progetti/Eclipse/dime_risk_thresholding/output/results/{args.collection}_{args.model_name}_{args.filter_function}_{measure_name}.csv"
-        output.to_csv(save_filename, index=False)
+        #save_filename = f"/hdd4/giuder/progetti/Eclipse/dime_risk_thresholding/output/results/{args.collection}_{args.model_name}_{args.filter_function}_{measure_name}.csv"
+        #output.to_csv(save_filename, index=False)
 
 
 if __name__ == "__main__":
